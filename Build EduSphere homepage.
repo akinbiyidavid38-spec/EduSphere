@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101b3f">
+<title>EduSphere | Learn Without Limits</title>
+
+<style>
+:root {
+  --navy: #101b3f;
+  --blue: #4567f5;
+  --purple: #7958e8;
+  --light: #f5f7ff;
+  --text: #202945;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: white;
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 15px #101b3f0c;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.logo span { color: var(--blue); }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--blue);
+  color: white;
+  padding: 13px 23px;
+  border: none;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover { background: var(--purple); }
+
+.hero {
+  padding: 95px 7%;
+  background: linear-gradient(120deg,#f4f6ff,#eef0ff);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.tag {
+  color: var(--blue);
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.12;
+  color: var(--navy);
+  margin-bottom: 22px;
+}
+
+.hero h1 span { color: var(--blue); }
+
+.hero p {
+  color: #66708a;
+  max-width: 530px;
+  margin-bottom: 28px;
+}
+
+.hero-art {
+  background: linear-gradient(145deg,#4567f5,#7958e8);
+  color: white;
+  padding: 45px 25px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 50px #4567f530;
+}
+
+.hero-art .symbol {
+  font-size: 90px;
+  margin-bottom: 15px;
+}
+
+.hero-art h2 { font-size: 25px; }
+
+section {
+  padding: 75px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  color: var(--navy);
+}
+
+.section-title p {
+  color: #778099;
+  margin-top: 8px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.feature {
+  padding: 28px;
+  border: 1px solid #e9ecf5;
+  border-radius: 15px;
+  background: white;
+  transition: .2s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px #101b3f12;
+}
+
+.feature .icon {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.feature h3 {
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.feature p {
+  color: #778099;
+  font-size: 14px;
+}
+
+.courses {
+  background: var(--light);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.course {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px #101b3f09;
+}
+
+.course-banner {
+  padding: 35px;
+  text-align: center;
+  font-size: 48px;
+  background: #e9edff;
+}
+
+.course-info { padding: 22px; }
+
+.course-info h3 {
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.course-info p {
+  color: #778099;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.ai-section {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+}
+
+.ai-section h2 {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.ai-section p {
+  color: #c2cbe6;
+  margin-bottom: 25px;
+}
+
+footer {
+  padding: 35px 7%;
+  background: #0b122d;
+  color: #b9c2dc;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer strong { color: white; }
+
+.menu-btn {
+  display: none;
+  font-size: 25px;
+  background: none;
+  border: none;
+  color: var(--navy);
+}
+
+@media(max-width: 750px) {
+  nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: white;
+    flex-direction: column;
+  }
+
+  nav.show { display: flex; }
+
+  .menu-btn { display: block; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 65px 7%;
+  }
+
+  .features, .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title h2 { font-size: 28px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Edu<span>Sphere.</span></div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <nav id="navigation">
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#courses">Courses</a>
+    <a href="#about">About</a>
+    <a href="mailto:hello@edusphere.com">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div>
+    <div class="tag">THE FUTURE OF LEARNING STARTS HERE</div>
+
+    <h1>Learn Without Limits. <span>Grow Without Boundaries.</span></h1>
+
+    <p>
+      Welcome to EduSphere, a modern learning platform
+      designed to make quality education accessible,
+      interactive and affordable for everyone.
+    </p>
+
+    <a href="#courses" class="btn">Explore Learning</a>
+  </div>
+
+  <div class="hero-art">
+    <div class="symbol">🎓</div>
+    <h2>Your Future Starts Here</h2>
+    <p>Discover knowledge. Develop skills. Achieve more.</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="section-title">
+    <h2>Everything You Need to Learn</h2>
+    <p>Powerful tools designed for better learning.</p>
+  </div>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="icon">📚</div>
+      <h3>Learning Resources</h3>
+      <p>Access organised educational materials and learning resources.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🤖</div>
+      <h3>AI Learning Assistant</h3>
+      <p>Discover a smarter way to understand difficult topics.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">📝</div>
+      <h3>Online Assessments</h3>
+      <p>Test your knowledge with interactive quizzes and exercises.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">📊</div>
+      <h3>Progress Tracking</h3>
+      <p>Keep track of your learning activities and achievements.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🌍</div>
+      <h3>Global Accessibility</h3>
+      <p>Learn from anywhere using your internet-connected device.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">📱</div>
+      <h3>Mobile Friendly</h3>
+      <p>Enjoy a responsive experience on phones, tablets and computers.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="courses" id="courses">
+  <div class="section-title">
+    <h2>Explore Learning Categories</h2>
+    <p>Build knowledge across different fields.</p>
+  </div>
+
+  <div class="course-grid">
+
+    <div class="course">
+      <div class="course-banner">💻</div>
+      <div class="course-info">
+        <h3>Technology & Computing</h3>
+        <p>Explore programming, computer science and digital skills.</p>
+        <a href="mailto:hello@edusphere.com" class="btn">Learn More</a>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-banner">🔬</div>
+      <div class="course-info">
+        <h3>Science & Mathematics</h3>
+        <p>Develop your understanding of science and mathematics.</p>
+        <a href="mailto:hello@edusphere.com" class="btn">Learn More</a>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-banner">📖</div>
+      <div class="course-info">
+        <h3>Languages & Humanities</h3>
+        <p>Discover languages, communication and human knowledge.</p>
+        <a href="mailto:hello@edusphere.com" class="btn">Learn More</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="ai-section" id="about">
+  <h2>Education Should Have No Boundaries.</h2>
+  <p>
+    EduSphere is building a future where technology
+    makes learning more accessible to everyone.
+  </p>
+  <a href="#home" class="btn">Discover EduSphere</a>
+</section>
+
+</main>
+
+<footer>
+  <strong>EduSphere</strong>
+  <p>Learn Without Limits. Grow Without Boundaries.</p>
+  <p>© 2026 EduSphere. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navigation").classList.toggle("show");
+}
+
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navigation").classList.remove("show");
+  });
+});
+</script>
+
+</body>
+</html>
+
